@@ -124,8 +124,8 @@ All integrations require a free account at [prerex.io](https://prerex.io/signup)
 | | Free | Pro |
 |---|---|---|
 | **Price** | **Free forever** | **EUR 9.99/mo** or EUR 99/yr |
-| Renders | 1,000/month | Unlimited |
-| Sites | 1 | Unlimited |
+| Renders | 1,000/month | 100,000/month |
+| Sites | 1 | Up to 50 |
 | SEO bots (Google, Bing) | Yes | Yes |
 | Social bots (Facebook, Twitter, LinkedIn) | — | Yes |
 | AI bots (GPTBot, ClaudeBot) | — | Yes |
