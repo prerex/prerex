@@ -59,7 +59,7 @@ Prerex fixes this. When a bot visits your site, it gets a fully-rendered version
 | **29+ bots** | Google, Bing, Facebook, Twitter, LinkedIn, Pinterest, GPTBot, ClaudeBot, and more. |
 | **DNS verification** | Confirms bots are genuine. Blocks spoofed user-agents. |
 | **HTML cleanup** | Strips unnecessary scripts and styles — pages up to 80% lighter. |
-| **Cache bypass** | Automatically bypasses WP Super Cache, WP Rocket, W3 Total Cache, LiteSpeed. |
+| **Cache compatible** | Works alongside WP Super Cache, WP Rocket, W3 Total Cache, LiteSpeed — no conflicts. |
 | **Social previews** | Facebook, Twitter, LinkedIn see your real content and images. |
 | **AI crawlers** | GPTBot, ClaudeBot, PerplexityBot get your complete content. |
 | **Works with everything** | Elementor, Divi, WPBakery, Bricks, WooCommerce, multisite, any theme. |
@@ -146,7 +146,7 @@ Built by engineers, not marketers.
 - **Revocable sessions** — JWT tokens can be invalidated instantly on logout or password change. No stale sessions.
 - **Rate limiting everywhere** — login, registration, rendering, webhooks. Multi-layer: application-level per key, infrastructure-level per IP.
 - **HTML cleanup pipeline** — strips scripts, styles, event handlers, and tracking pixels. Preserves JSON-LD, Open Graph, images, and semantic structure. Pages up to 80% lighter.
-- **Automated cache bypass** — detects and works around WP Super Cache, WP Rocket, W3 Total Cache, LiteSpeed, and any object cache. Installs a must-use plugin that handles everything.
+- **Smart cache integration** — coexists with WP Super Cache, WP Rocket, W3 Total Cache, LiteSpeed, and any object cache. Ensures bots always get fresh rendered content without disrupting your existing cache setup.
 - **154 automated tests**, zero tolerance for regressions
 
 We don't ship features. We ship guarantees.
