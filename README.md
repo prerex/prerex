@@ -36,18 +36,18 @@ Prerex fixes this. When a bot visits your site, it gets a fully-rendered version
 ## How It Works
 
 ```
-       Visitor arrives
-            │
-     ┌──────┴──────┐
-     │              │
-   Human           Bot
-     │              │
-  Your site      Prerex serves
-  as usual       rendered HTML
-                 from cloud
-                     │
-              Complete content
-              in ~200ms
+        Visitor arrives
+              │
+       ┌──────┴──────┐
+       │              │
+     Human           Bot
+       │              │
+   Your site     Prerex serves
+   as usual      rendered HTML
+                  from cloud
+                      │
+                Complete content
+                  in ~200ms
 ```
 
 ## Features
