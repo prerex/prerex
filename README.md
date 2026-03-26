@@ -132,6 +132,95 @@ Only what's needed to render pages: URLs visited by bots, bot user-agents, and b
 Prerex is WordPress-specific: zero config, built-in bot detection with DNS verification, automatic cache bypass, deep WordPress hooks. Prerender.io is a generic service that requires server configuration and has no WordPress integration.
 </details>
 
+## Under the Hood
+
+Built by engineers, not marketers.
+
+- **Cloud rendering engine** with sub-second response times — pages served in ~200ms from edge cache
+- **DNS-verified bot detection** — reverse + forward DNS lookup confirms every bot is genuine. No spoofing gets through.
+- **Adaptive wait technology (Rex Sense)** — captures content when it's truly ready, not on a fixed timer. Handles lazy-loaded images, AJAX calls, and deferred scripts.
+- **Three-tier network isolation** — the rendering sandbox never touches your data. Separate networks for public traffic, internal services, and database layer.
+- **SSRF protection** — URL validation blocks private IPs, DNS rebinding, octal notation, and internal hostnames. Rendering can't be weaponized.
+- **Every input validated** — all API endpoints enforce strict schema validation. Every user-submitted regex checked for catastrophic backtracking (ReDoS).
+- **Credentials hashed at rest** — bcrypt for passwords and API keys, SHA-256 for verification codes. Nothing stored in plaintext.
+- **Revocable sessions** — JWT tokens can be invalidated instantly on logout or password change. No stale sessions.
+- **Rate limiting everywhere** — login, registration, rendering, webhooks. Multi-layer: application-level per key, infrastructure-level per IP.
+- **HTML cleanup pipeline** — strips scripts, styles, event handlers, and tracking pixels. Preserves JSON-LD, Open Graph, images, and semantic structure. Pages up to 80% lighter.
+- **Automated cache bypass** — detects and works around WP Super Cache, WP Rocket, W3 Total Cache, LiteSpeed, and any object cache. Installs a must-use plugin that handles everything.
+- **154 automated tests**, zero tolerance for regressions
+
+We don't ship features. We ship guarantees.
+
+## Architecture Overview
+
+```
+                    ┌─────────────┐
+                    │   Nginx     │
+                    │  SSL + Rate │
+                    │   Limiting  │
+                    └──────┬──────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+        ┌─────┴─────┐ ┌───┴───┐ ┌─────┴─────┐
+        │    API     │ │  App  │ │  Status   │
+        │  Engine    │ │ Dash  │ │  Monitor  │
+        └─────┬──────┘ └───────┘ └───────────┘
+              │
+     ┌────────┼────────┐
+     │        │        │
+┌────┴───┐ ┌──┴──┐ ┌──┴──┐
+│Renderer│ │Queue│ │Cache│
+│Sandbox │ │     │ │     │
+└────────┘ └──┬──┘ └─────┘
+              │
+     ┌────────┴────────┐
+     │    Database      │
+     │  (isolated net)  │
+     └─────────────────┘
+```
+
+The renderer runs in a sandboxed environment with no access to the database network. Even if the rendering engine is compromised, your data stays safe.
+
+## Bot Coverage
+
+Prerex detects and serves optimized content to **29+ bot families** across 4 categories:
+
+| Category | Bots | Free | Pro |
+|---|---|---|---|
+| **SEO** | Googlebot, Bingbot, Yandex, Baidu, DuckDuckBot, Sogou, Naver, Seznam, and more | Yes | Yes |
+| **Social** | Facebook, Twitter/X, LinkedIn, Pinterest, Telegram, WhatsApp, Discord, Slack | — | Yes |
+| **AI** | GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Cohere, Meta AI | — | Yes |
+| **QA** | Lighthouse, PageSpeed Insights, GTmetrix, Pingdom | — | Yes |
+
+Every bot is verified using **reverse + forward DNS lookup** — not just user-agent matching. This means:
+- `crawl-66-249-66-1.googlebot.com` → Verified Google bot → Served
+- `fake-googlebot.com` → DNS mismatch → Blocked
+
+## Performance
+
+| Metric | Value |
+|---|---|
+| Cache hit response | ~200ms |
+| Fresh render | 2-8s (depending on page complexity) |
+| HTML size reduction | Up to 80% |
+| Bot detection overhead | < 1ms |
+| Cache TTL (Free) | 12 hours |
+| Cache TTL (Pro) | 48 hours |
+
+## Compatibility
+
+Tested and verified with:
+
+| Page Builders | Cache Plugins | eCommerce | Other |
+|---|---|---|---|
+| Elementor | WP Super Cache | WooCommerce | Multisite |
+| Divi | WP Rocket | Easy Digital Downloads | WPML |
+| WPBakery | W3 Total Cache | | Polylang |
+| Bricks | LiteSpeed Cache | | Yoast SEO |
+| Beaver Builder | Cloudflare | | Rank Math |
+| Oxygen | Fastly | | |
+
 ## Support
 
 - [Report a bug](https://github.com/prerex/prerex/issues/new?template=bug_report.md)
