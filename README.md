@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="prerex-logo.png" alt="Prerex" width="450">
+  <img src="prerex-logo.png" alt="Prerex" width="400">
 </p>
 
 <h3 align="center">Your WordPress site is invisible to Google.<br>Fix it in 2 minutes.</h3>
