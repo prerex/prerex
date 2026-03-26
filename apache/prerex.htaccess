@@ -1,0 +1,83 @@
+# ==========================================================================
+# Prerex — Bot prerendering for Apache (.htaccess)
+# https://prerex.io
+#
+# Serves prerendered HTML to search engine bots and crawlers via the
+# Prerex API. Works on any PHP site (non-WordPress) running Apache.
+#
+# SETUP:
+#   1. Copy this snippet into your site's .htaccess (or merge with existing)
+#   2. Copy prerex-render.php to your document root
+#   3. Set your API key in prerex-render.php
+#
+# REQUIREMENTS:
+#   - Apache with mod_rewrite enabled (standard on virtually all hosts)
+#   - PHP with curl extension (standard on virtually all hosts)
+#
+# HOW IT WORKS:
+#   - Detects bot user-agents via RewriteCond
+#   - Skips static assets (images, CSS, JS, fonts, etc.)
+#   - Routes bot requests to prerex-render.php, which calls the Prerex API
+#   - If the API fails, falls through to the normal page (graceful fallback)
+#   - Uses PREREX_DONE env var to prevent rewrite loops
+#
+# Bot patterns kept in sync with:
+#   packages/prerex-core/src/bot-patterns.ts (29 patterns)
+# ==========================================================================
+
+# --------------------------------------------------------------------------
+# APPROACH 1: PHP handler (recommended — works on all shared hosts)
+# --------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Prevent rewrite loop: if we already routed through prerex-render.php, stop
+RewriteCond %{ENV:REDIRECT_PREREX_DONE} !1
+
+# Bot user-agent detection (29 patterns, case-insensitive)
+# NOTE: "google.page.speed" uses dots instead of literal spaces to avoid
+# regex issues with Apache — dots match any char, which is safe here.
+RewriteCond %{HTTP_USER_AGENT} (anthropic-ai|applebot|baiduspider|bingbot|chrome-lighthouse|claudebot|duckduckbot|embedly|facebookexternalhit|facebot|google.page.speed|googlebot|gptbot|gtmetrix|ia_archiver|lighthouse|linkedinbot|outbrain|pagespeed|perplexitybot|pinterest|rogerbot|showyoubot|slackbot|slurp|twitterbot|vkshare|webpagetest|yandexbot) [NC]
+
+# Skip static file extensions — never prerender assets
+RewriteCond %{REQUEST_URI} !\.(js|css|mjs|map|jpg|jpeg|png|gif|webp|svg|avif|ico|woff|woff2|ttf|eot|otf|pdf|zip|gz|mp4|mp3|xml|json|txt)$ [NC]
+
+# Route to the PHP handler, passing the original path
+RewriteRule ^(.*)$ /prerex-render.php?prerex_path=$1 [L,E=PREREX_DONE:1,QSA]
+</IfModule>
+
+
+# --------------------------------------------------------------------------
+# APPROACH 2: mod_proxy (advanced — if your server has mod_proxy enabled)
+#
+# This proxies directly to the Prerex API without needing the PHP script.
+# Uncomment the block below and REMOVE Approach 1 above.
+#
+# Requires: mod_proxy, mod_proxy_http, mod_rewrite, mod_headers
+# Typically available on VPS/dedicated servers, NOT on shared hosting.
+# --------------------------------------------------------------------------
+
+# <IfModule mod_proxy.c>
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+#
+# RewriteCond %{HTTP_USER_AGENT} (anthropic-ai|applebot|baiduspider|bingbot|chrome-lighthouse|claudebot|duckduckbot|embedly|facebookexternalhit|facebot|google.page.speed|googlebot|gptbot|gtmetrix|ia_archiver|lighthouse|linkedinbot|outbrain|pagespeed|perplexitybot|pinterest|rogerbot|showyoubot|slackbot|slurp|twitterbot|vkshare|webpagetest|yandexbot) [NC]
+# RewriteCond %{REQUEST_URI} !\.(js|css|mjs|map|jpg|jpeg|png|gif|webp|svg|avif|ico|woff|woff2|ttf|eot|otf|pdf|zip|gz|mp4|mp3|xml|json|txt)$ [NC]
+#
+# # Build the full URL for the Prerex API
+# RewriteCond %{HTTPS} =on
+# RewriteRule ^(.*)$ https://api.prerex.dev/api/render?url=https://%{HTTP_HOST}%{REQUEST_URI} [P,L]
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://api.prerex.dev/api/render?url=http://%{HTTP_HOST}%{REQUEST_URI} [P,L]
+#
+# # Pass required headers to the Prerex API
+# RequestHeader set x-api-key "YOUR_API_KEY_HERE"
+# RequestHeader set x-original-ua "%{HTTP_USER_AGENT}e"
+# RequestHeader set x-bot-ip "%{REMOTE_ADDR}e"
+#
+# # NOTE: mod_proxy approach does NOT have automatic fallback on API error.
+# # If the API is down, the bot will see a 502 error.
+# # For graceful fallback, use Approach 1 (PHP handler) instead.
+# </IfModule>
+# </IfModule>

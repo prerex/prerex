@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://prerex.io/angel"><strong>🚀 First 250 users get Pro free for 6 months → Join the launch</strong></a>
+  <a href="https://prerex.io/get-started"><strong>🚀 First 250 users get Pro free for 6 months → Get Started Free</strong></a>
 </p>
 
 <p align="center">
@@ -38,6 +38,19 @@ Prerex fixes this. When a bot visits your site, it gets a fully-rendered version
 <p align="center">
   <img src="how-it-works.svg" alt="How Prerex works" width="600">
 </p>
+
+## Why It Matters
+
+| | Impact |
+|---|---|
+| **Full content indexing** | Google sees your complete pages, not empty JavaScript shells |
+| **Better Core Web Vitals** | Clean HTML (~80% smaller) = better performance signals = higher rankings |
+| **Crawl budget optimization** | Lighter pages = Google crawls more of your site in the same time |
+| **Perfect social previews** | Facebook, LinkedIn, WhatsApp show your real content, not a blank page |
+| **AI visibility** | GPTBot, ClaudeBot, PerplexityBot see your complete content |
+| **Zero impact on visitors** | Human visitors experience no difference whatsoever |
+
+> Prerex doesn't do SEO for you. Prerex makes sure the SEO you've already done actually works.
 
 ## Features
 
@@ -122,7 +135,7 @@ All integrations require a free account at [prerex.io](https://prerex.io).
 | Cache TTL | 12h | 48h |
 
 <p align="center">
-  <a href="https://prerex.io/angel"><strong>🚀 First 250 users get Pro free for 6 months →</strong></a>
+  <a href="https://prerex.io/get-started"><strong>🚀 First 250 users get Pro free for 6 months → Start for free</strong></a>
 </p>
 
 ## Requirements
