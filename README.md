@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://prerex.io/get-started"><strong>🚀 First 250 users get Pro free for 6 months → Get Started Free</strong></a>
+  <a href="https://prerex.io/signup"><strong>🚀 First 250 users get Pro free for 6 months → Get Started Free</strong></a>
 </p>
 
 <p align="center">
@@ -117,7 +117,7 @@ set $prerex_api_key "YOUR_API_KEY";
 include /path/to/prerex-server.conf;
 ```
 
-All integrations require a free account at [prerex.io](https://prerex.io).
+All integrations require a free account at [prerex.io](https://prerex.io/signup).
 
 ## Plans
 
@@ -135,7 +135,7 @@ All integrations require a free account at [prerex.io](https://prerex.io).
 | Cache TTL | 12h | 48h |
 
 <p align="center">
-  <a href="https://prerex.io/get-started"><strong>🚀 First 250 users get Pro free for 6 months → Start for free</strong></a>
+  <a href="https://prerex.io/signup"><strong>🚀 First 250 users get Pro free for 6 months → Start for free</strong></a>
 </p>
 
 ## Requirements
