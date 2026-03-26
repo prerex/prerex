@@ -55,9 +55,56 @@ Prerex fixes this. When a bot visits your site, it gets a fully-rendered version
 
 ## Quick Start
 
+### WordPress
 1. Download the plugin from [prerex.io](https://prerex.io)
 2. In WordPress admin: **Plugins > Add New > Upload Plugin**
 3. Upload the ZIP, activate, done. No API keys, no configuration.
+
+### Next.js
+```bash
+npm install @prerex/next
+```
+```ts
+// middleware.ts
+import { createPrerexMiddleware } from '@prerex/next'
+export default createPrerexMiddleware()
+```
+Set `PREREX_API_KEY` in your `.env` — done.
+
+### Nuxt
+```bash
+npm install @prerex/nuxt
+```
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@prerex/nuxt'],
+})
+```
+
+### Express / Node.js
+```bash
+npm install @prerex/express
+```
+```ts
+import express from 'express'
+import { prerex } from '@prerex/express'
+const app = express()
+app.use(prerex())
+```
+
+### Nginx (any SPA)
+Copy the config snippets from [`nginx/`](nginx/) into your Nginx setup:
+```nginx
+# In http {} block:
+include /path/to/prerex-maps.conf;
+
+# In server {} block:
+set $prerex_api_key "YOUR_API_KEY";
+include /path/to/prerex-server.conf;
+```
+
+All integrations require a free account at [prerex.io](https://prerex.io).
 
 ## Plans
 
