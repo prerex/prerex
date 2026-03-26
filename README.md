@@ -151,37 +151,6 @@ Built by engineers, not marketers.
 
 We don't ship features. We ship guarantees.
 
-## Architecture Overview
-
-```
-                    ┌─────────────┐
-                    │   Nginx     │
-                    │  SSL + Rate │
-                    │   Limiting  │
-                    └──────┬──────┘
-                           │
-              ┌────────────┼────────────┐
-              │            │            │
-        ┌─────┴─────┐ ┌───┴───┐ ┌─────┴─────┐
-        │    API     │ │  App  │ │  Status   │
-        │  Engine    │ │ Dash  │ │  Monitor  │
-        └─────┬──────┘ └───────┘ └───────────┘
-              │
-     ┌────────┼────────┐
-     │        │        │
-┌────┴───┐ ┌──┴──┐ ┌──┴──┐
-│Renderer│ │Queue│ │Cache│
-│Sandbox │ │     │ │     │
-└────────┘ └──┬──┘ └─────┘
-              │
-     ┌────────┴────────┐
-     │    Database      │
-     │  (isolated net)  │
-     └─────────────────┘
-```
-
-The renderer runs in a sandboxed environment with no access to the database network. Even if the rendering engine is compromised, your data stays safe.
-
 ## Bot Coverage
 
 Prerex detects and serves optimized content to **29+ bot families** across 4 categories:
