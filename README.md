@@ -2,10 +2,10 @@
   <img src="prerex-logo.png" alt="Prerex" width="350">
 </p>
 
-<h3 align="center">Your WordPress site is invisible to Google.<br>Fix it in 2 minutes.</h3>
+<h3 align="center">Visible to Google. Cited by ChatGPT.</h3>
 
 <p align="center">
-  Prerex renders your pages in the cloud and serves clean, complete HTML to search engines, social bots, and AI crawlers. Install the plugin, activate it, done.
+  Your content deserves to be found by Google, cited by ChatGPT, and shared perfectly on social media. Prerex makes it happen — zero config.
 </p>
 
 <p align="center">
@@ -22,16 +22,18 @@
 ---
 
 <p align="center">
-  <strong>29+ bots detected</strong> · <strong>~200ms response</strong> · <strong>Zero config</strong> · <strong>Works with any theme & page builder</strong>
+  <strong>AI + SEO + Social</strong> · <strong>29+ bots</strong> · <strong>~200ms</strong> · <strong>Zero config</strong> · <strong>Any theme & page builder</strong>
 </p>
 
 ---
 
 ## Why Prerex?
 
-Modern WordPress sites are full of JavaScript — page builders, lazy loading, WooCommerce, dynamic widgets. **Google, Bing, Facebook, and AI crawlers don't always see your actual content.** That means lost rankings, broken social previews, and invisible pages.
+**25% of Google queries now trigger AI Overviews.** If ChatGPT can't read your site, it will never recommend you. If Google can't see your JavaScript-rendered content, you're losing rankings.
 
-Prerex fixes this. When a bot visits your site, it gets a fully-rendered version of your page — every image loaded, every script executed, all content visible. **Your visitors notice nothing. Bots see everything.**
+Modern sites rely on JavaScript for everything — page builders, lazy loading, WooCommerce, dynamic widgets. **But AI crawlers like GPTBot and ClaudeBot don't execute JavaScript at all.** Google does, but with delays of hours to weeks.
+
+Prerex fixes this. When any bot visits your site, it gets a fully-rendered version — every image loaded, every script executed, all content visible. **Your visitors notice nothing. Bots see everything. AI cites you.**
 
 ## How It Works
 
@@ -43,14 +45,14 @@ Prerex fixes this. When a bot visits your site, it gets a fully-rendered version
 
 | | Impact |
 |---|---|
+| **AI visibility** | GPTBot, ClaudeBot, PerplexityBot see your complete content — get cited by ChatGPT |
 | **Full content indexing** | Google sees your complete pages, not empty JavaScript shells |
 | **Better Core Web Vitals** | Clean HTML (~80% smaller) = better performance signals = higher rankings |
 | **Crawl budget optimization** | Lighter pages = Google crawls more of your site in the same time |
 | **Perfect social previews** | Facebook, LinkedIn, WhatsApp show your real content, not a blank page |
-| **AI visibility** | GPTBot, ClaudeBot, PerplexityBot see your complete content |
 | **Zero impact on visitors** | Human visitors experience no difference whatsoever |
 
-> Prerex doesn't do SEO for you. Prerex makes sure the SEO you've already done actually works.
+> Prerex doesn't do SEO for you. Prerex makes sure the SEO you've already done actually works — for Google, for ChatGPT, for every bot that matters.
 
 ## Features
 
@@ -179,6 +181,12 @@ Only what's needed to render pages: URLs visited by bots, bot user-agents, and b
 <summary><strong>How is this different from Prerender.io?</strong></summary>
 <br>
 Prerex is WordPress-specific: zero config, built-in bot detection with DNS verification, automatic cache bypass, deep WordPress hooks. Prerender.io is a generic service that requires server configuration and has no WordPress integration.
+</details>
+
+<details>
+<summary><strong>Can ChatGPT see my site with Prerex?</strong></summary>
+<br>
+With Prerex Pro, yes. GPTBot, ClaudeBot, and PerplexityBot receive fully rendered HTML of your pages. On the Free plan, AI crawler visits are logged but not served — you can see how often AI crawlers visit and upgrade when ready.
 </details>
 
 ## Under the Hood
