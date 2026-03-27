@@ -71,7 +71,7 @@ Prerex fixes this. When any bot visits your site, it gets a fully-rendered versi
 ## Quick Start
 
 ### WordPress
-1. Download the plugin from [prerex.io](https://prerex.io)
+1. Download [prerex-wp.zip](https://github.com/prerex/prerex/releases/latest/download/prerex-wp.zip) from the latest release
 2. In WordPress admin: **Plugins > Add New > Upload Plugin**
 3. Upload the ZIP, activate, done. No API keys, no configuration.
 
@@ -216,7 +216,7 @@ Prerex detects and serves optimized content to **29+ bot families** across 4 cat
 |---|---|---|---|
 | **SEO** | Googlebot, Bingbot, Yandex, Baidu, DuckDuckBot, Sogou, Naver, Seznam, and more | Yes | Yes |
 | **Social** | Facebook, Twitter/X, LinkedIn, Pinterest, Telegram, WhatsApp, Discord, Slack | — | Yes |
-| **AI** | GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Cohere, Meta AI | — | Yes |
+| **AI** | OAI-SearchBot, GPTBot (OpenAI), Claude-SearchBot, ClaudeBot (Anthropic), PerplexityBot, Google-Extended, Cohere, Meta AI | — | Yes |
 | **QA** | Lighthouse, PageSpeed Insights, GTmetrix, Pingdom | — | Yes |
 
 Every bot is verified using **reverse + forward DNS lookup** — not just user-agent matching. This means:
