@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #e2e8f0; }
+    .title { font-size: 18px; font-weight: 600; }
+    .label { font-size: 15px; font-weight: 600; }
+    .desc { font-size: 13px; fill: #94a3b8; }
+    .line { stroke: #475569; stroke-width: 2; }
+    .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; rx: 8; }
+    .box-accent { fill: #2e1065; stroke: #7c3aed; stroke-width: 1.5; rx: 8; }
+    .badge { font-size: 11px; font-weight: 600; fill: #a78bfa; }
+  </style>
+
+  <!-- Background -->
+  <rect width="600" height="360" fill="#0f172a" rx="12"/>
+
+  <!-- Title -->
+  <text x="300" y="36" text-anchor="middle" class="title">How It Works</text>
+
+  <!-- Top box: Visitor -->
+  <rect x="215" y="52" width="170" height="40" class="box"/>
+  <text x="300" y="77" text-anchor="middle" class="label">Visitor arrives</text>
+
+  <!-- Lines down from visitor -->
+  <line x1="300" y1="92" x2="300" y2="112" class="line"/>
+  <line x1="150" y1="112" x2="450" y2="112" class="line"/>
+  <line x1="150" y1="112" x2="150" y2="132" class="line"/>
+  <line x1="450" y1="112" x2="450" y2="132" class="line"/>
+
+  <!-- Human box -->
+  <rect x="70" y="132" width="160" height="40" class="box"/>
+  <text x="150" y="157" text-anchor="middle" class="label">Human</text>
+
+  <!-- Bot box -->
+  <rect x="370" y="132" width="160" height="40" class="box-accent"/>
+  <text x="450" y="157" text-anchor="middle" class="label">Bot detected</text>
+
+  <!-- Lines down -->
+  <line x1="150" y1="172" x2="150" y2="202" class="line"/>
+  <line x1="450" y1="172" x2="450" y2="202" class="line"/>
+
+  <!-- Human result -->
+  <rect x="70" y="202" width="160" height="56" class="box"/>
+  <text x="150" y="226" text-anchor="middle" class="desc">Your site loads</text>
+  <text x="150" y="246" text-anchor="middle" class="desc">as usual</text>
+
+  <!-- Bot result -->
+  <rect x="370" y="202" width="160" height="56" class="box-accent"/>
+  <text x="450" y="222" text-anchor="middle" class="desc">Prerex serves</text>
+  <text x="450" y="242" text-anchor="middle" class="desc">rendered HTML</text>
+
+  <!-- Line down from bot result -->
+  <line x1="450" y1="258" x2="450" y2="288" class="line"/>
+
+  <!-- Final result -->
+  <rect x="345" y="288" width="210" height="50" class="box-accent"/>
+  <text x="450" y="310" text-anchor="middle" class="label">Complete content</text>
+  <text x="450" y="328" text-anchor="middle" class="badge">~200ms from cache</text>
+</svg>
